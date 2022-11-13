@@ -1,8 +1,10 @@
 {
-  "engines": {
-    "node": "v18.12.1"
+  "name": "bootstrap-by-example",
+  "version": "0.1.0",
+   "engines": {
+    "node": "18.12.1"
   },
   "AWS_LAMBDA_JS_RUNTIME": {
-    "node": "v18.12.1"
+    "node": "18.12.1"
   }
 }
