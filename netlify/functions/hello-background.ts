@@ -7,7 +7,7 @@ exports.handler = function (event, context) {
     for (let i = 0; i < 60; i++) {
       let date = new Date();
       await sleep(1000);
-      console.log(date.toLocaleString(), i);
+      console.log("Background Function Is Run");
     }
     console.log("Done");
   }
