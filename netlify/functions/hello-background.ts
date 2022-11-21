@@ -1,24 +1,16 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import axios from "axios";
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-
-type Data = {
-  name: string;
-};
-
-export default async function handler(
-  req,
-  res
-) {
-  const { url, headers } = req;
-
-  for (let i = 0; i <= 10; i++) {
-    console.log(`sleeping ${i}`);
-    axios.post("https://en1ta4a0x9c6i.x.pipedream.net", { i, url, headers });
-    await sleep(i * 1000);
+exports.handler = function (event, context) {
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  await res.status(200).json({ name: "John Doe" });
-}
+  async function demo() {
+    for (let i = 0; i < 60; i++) {
+      let date = new Date();
+      await sleep(1000);
+      console.log(date.toLocaleString(), i);
+    }
+    console.log("Done");
+  }
+
+  demo();
+};
